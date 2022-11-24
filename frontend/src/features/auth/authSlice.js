@@ -15,4 +15,14 @@ export const authSlice = createSlice({
     extraReducers : (builder) => {}
 })
 
+// Register a new user
+export const register = createAsyncThunk('auth/register' , async(user, thunkAPI) => {
+    console.log(user);
+})
+
+// login user
+export const login = createAsyncThunk('auth/login' , async(user, thunkAPI) => {
+    console.log(user);
+})
+
 export default authSlice.reducer;
