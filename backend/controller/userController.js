@@ -67,7 +67,19 @@ const loginUser = asyncHandler(async(req,res) => {
         res.status(401);
         throw new Error('Invalid credentials');
     }
-})
+});
+
+// @desc   get me 
+// @path   /api/users/me
+// @access Private
+const getMe = asyncHandler(async(req,res) => {
+    const user = {
+        id : req.user._id,
+        name : req.user.name,
+        email : req.user.email,
+    }
+    res.status(200).json(user);
+});
 
 // generateToken()
 
@@ -79,5 +91,6 @@ const generateToken = (id) => {
 
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    getMe,
 };
